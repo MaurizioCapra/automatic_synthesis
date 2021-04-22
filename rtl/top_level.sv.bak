@@ -1,0 +1,26 @@
+module top_level
+	#(parameter N=3)	
+	(
+	input a,
+	input clock,
+	output y);
+	
+	logic [N-1:0] net;
+	logic a1;
+
+	always_ff @(posedge clock)
+		a1 <= a;
+		//y <= net[N-1];
+
+	inv_beh u0(.a (a1), .y (net[0]));
+
+	genvar i;
+	
+	generate
+		for(i=1; i<N; i=i+1) begin
+		inv_beh u (net[i-1], net[i]);
+		end
+	endgenerate
+
+	assign y = net[N-1];
+endmodule

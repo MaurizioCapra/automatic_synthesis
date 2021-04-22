@@ -1,0 +1,268 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+                Version O-2018.06-SP4 for linux64 - Nov 27, 2018
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+set_host_options -max_cores 4
+1
+analyze -f sv -lib WORK -autoread ../rtl
+== ANALYZE autoread all files ==
+
+Starting ANALYZE autoread mode...
+Information: Adding '/home/phd-students/maurizio.capra/test/rtl'.  (AUTOREAD-100)
+Warning: Adding missing directory to search_path - '/home/phd-students/maurizio.capra/test/rtl'. (AUTOREAD-105)
+Information: Adding '/home/phd-students/maurizio.capra/test/rtl/inv_beh.sv'.  (AUTOREAD-100)
+Information: Source top_level.sv.bak ignored by autoread due to filtering.  (AUTOREAD-102)
+Information: Adding '/home/phd-students/maurizio.capra/test/rtl/top_level.sv'.  (AUTOREAD-100)
+Information: Scanning file { inv_beh.sv }. (AUTOREAD-303)
+Information: Scanning file { top_level.sv }. (AUTOREAD-303)
+Compiling source file /home/phd-students/maurizio.capra/test/rtl/top_level.sv
+Presto compilation completed successfully.
+Compiling source file /home/phd-students/maurizio.capra/test/rtl/inv_beh.sv
+Presto compilation completed successfully.
+Autoread command completed successfully.
+1
+set power_preserve_rtl_hier_names true
+true
+elaborate top_level -lib WORK > ./elaborate.txt
+uniquify
+1
+link
+
+  Linking design 'top_level'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  top_level                   /home/phd-students/maurizio.capra/test/syn/top_level.db
+  uk65lscllmvbbr_100c25_tc (library) /software/dk/umc65/Core-lib_LL_Multi-Voltage_Reg.Vt/synopsys/uk65lscllmvbbr_100c25_tc.db
+  dw_foundation.sldb (library) /software/synopsys/syn_current_64/libraries/syn/dw_foundation.sldb
+
+1
+ungroup -all -flatten 
+Warning: Design has no hierarchy.  No cells can be ungrouped. (UID-228)
+0
+create_clock -name MY_CLK -period .4 clk
+1
+set_dont_touch_network MY_CLK
+1
+set_clock_uncertainty 0.07 [get_clocks MY_CLK]
+1
+set_input_delay 0.5 -max -clock MY_CLK [remove_from_collection [all_inputs] clk]
+1
+set_output_delay 0.5 -max -clock MY_CLK [all_outputs]
+1
+set OLOAD [load_of uk65lscllmvbbr_100c25_tc/BUFM14R/A] 
+0.0027595
+set_load $OLOAD [all_outputs]
+1
+check_design
+1
+compile_ultra -timing -gate_clock -no_autoungroup
+Warning: The -timing_high_effort_script option is ignored.  (OPT-1342)
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Running optimization using a maximum of 4 cores. (OPT-1500)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.4 |     *     |
+| Licensed DW Building Blocks        | F-2011.09-DWBB_201109.3 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+  Simplifying Design 'top_level'
+
+Loaded alib file './alib-52/uk65lscllmvbbr_100c25_tc.db.alib'
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'top_level'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Performing clock-gating on design top_level. (PWR-730)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: compile falsified 2 infeasible paths. (OPT-1720)
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:15       7.9      0.00       0.0       0.0                            341.8553
+    0:00:15       7.9      0.00       0.0       0.0                            341.8553
+    0:00:15       7.9      0.00       0.0       0.0                            341.8553
+    0:00:15       7.9      0.00       0.0       0.0                            341.8553
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:16       7.9      0.00       0.0       0.0                            341.8553
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:16       7.9      0.00       0.0       0.0                            331.6907
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+    0:00:16       7.9      0.00       0.0       0.0                            288.5611
+    0:00:16       7.9      0.00       0.0       0.0                            288.5611
+    0:00:16       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:17       7.9      0.00       0.0       0.0                            288.5611
+    0:00:18       7.9      0.00       0.0       0.0                            288.5611
+    0:00:18       7.9      0.00       0.0       0.0                            288.5611
+    0:00:18       7.9      0.00       0.0       0.0                            288.5611
+    0:00:18       7.9      0.00       0.0       0.0                            288.5611
+Loading db file '/software/dk/umc65/Core-lib_LL_Multi-Voltage_Reg.Vt/synopsys/uk65lscllmvbbr_100c25_tc.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+report_timing > ./timing.txt
+report_area > ./area.txt
+ungroup -all -flatten
+Warning: Design has no hierarchy.  No cells can be ungrouped. (UID-228)
+0
+change_names -hierarchy -rules verilog
+1
+write_sdf netlist/top_level.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/phd-students/maurizio.capra/test/syn/netlist/top_level.sdf'. (WT-3)
+1
+write -f verilog -hierarchy -output netlist/top_level.v
+Writing verilog file '/home/phd-students/maurizio.capra/test/syn/netlist/top_level.v'.
+1
+write_sdc netlist/top_level.sdc
+1
+quit
+
+Thank you...

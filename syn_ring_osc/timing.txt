@@ -1,0 +1,21 @@
+Information: Updating design information... (UID-85)
+Information: Timing loop detected. (OPT-150)
+	u0/Z genblk1[1].u1/A genblk1[1].u1/Z genblk1[2].u1/A genblk1[2].u1/Z u0/A 
+Warning: Disabling timing arc between pins 'A' and 'Z' on cell 'u0'
+         to break a timing loop. (OPT-314)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : inv_chain
+Version: O-2018.06-SP4
+Date   : Wed Apr 21 18:10:12 2021
+****************************************
+
+Operating Conditions: uk65lscllmvbbr_100c25_tc   Library: uk65lscllmvbbr_100c25_tc
+Wire Load Model Mode: top
+No paths.
+
+1

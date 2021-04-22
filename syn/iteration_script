@@ -1,0 +1,28 @@
+#!/bin/bash
+source /software/europractice-release-2019/scripts/init_synopsys_syn2018.06
+t=2.0
+while [ 1 ]
+do
+	#change value for clock in design_compiler script
+	sed -i "8s/[^ ]*[^ ]/${t}/5" script_syn_try.tcl
+	#run design_compiler with written script
+	dc_shell-xg-t -f script_syn_try.tcl | tee out.log
+	#say you quitted synopsys
+	echo "I quitted synopsys" 
+	#check if generated timing is MET
+	if grep -q "MET" timing.txt
+	then
+		cp timing.txt ./timing_${t}.txt
+		#print to see where you are
+		echo "Timing was met, updating and restarting"
+		#write timing in the timing list 
+		echo ${t} >> time_list_DP.txt
+		#writing obtained area
+		awk 'NR==28{print$4}' area.txt >> area_list_DP.txt
+		#updating time value
+		t=$(bc <<< "$t-0.4" )
+	else
+		echo "Script terminated"
+		break
+	fi
+done

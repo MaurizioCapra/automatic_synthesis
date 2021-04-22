@@ -1,0 +1,50 @@
+(DELAYFILE
+(SDFVERSION "OVI 2.1")
+(DESIGN "top_level")
+(DATE "Tue Apr 20 10:48:46 2021")
+(VENDOR "uk65lscllmvbbr_100c25_tc")
+(PROGRAM "Synopsys Design Compiler cmos")
+(VERSION "O-2018.06-SP4")
+(DIVIDER /)
+(VOLTAGE 1.00:1.00:1.00)
+(PROCESS "uk65lscllmvbbr_100c25_tc")
+(TEMPERATURE 25.00:25.00:25.00)
+(TIMESCALE 1ns)
+(CELL
+  (CELLTYPE "top_level")
+  (INSTANCE)
+  (DELAY
+    (ABSOLUTE
+    (INTERCONNECT a a1_reg/D (0.000:0.000:0.000))
+    (INTERCONNECT clk a1_reg/CK (0.000:0.000:0.000))
+    (INTERCONNECT a1_reg/Q U3/A (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "DFQM1RA")
+  (INSTANCE a1_reg)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge CK) Q (0.148:0.148:0.148) (0.170:0.170:0.170))
+    )
+  )
+  (TIMINGCHECK
+    (WIDTH (posedge CK) (0.089:0.089:0.089))
+    (WIDTH (negedge CK) (0.091:0.091:0.091))
+    (HOLD (posedge D) (posedge CK) (-0.007:-0.007:-0.007))
+    (HOLD (negedge D) (posedge CK) (0.034:0.034:0.034))
+    (SETUP (posedge D) (posedge CK) (0.022:0.022:0.022))
+    (SETUP (negedge D) (posedge CK) (-0.005:-0.005:-0.005))
+  )
+)
+(CELL
+  (CELLTYPE "INVM1R")
+  (INSTANCE U3)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.041:0.041:0.041) (0.032:0.032:0.032))
+    )
+  )
+)
+)

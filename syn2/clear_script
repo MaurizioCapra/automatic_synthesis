@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm -r -v !("clear_script"|"the_magic_script"|"script_syn_try.tcl"|"script_syn_try2.tcl"|".synopsys_dc.setup"|"alib-52")
+
+mkdir work
+mkdir netlist

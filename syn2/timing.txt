@@ -1,0 +1,38 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : inv_chain
+Version: O-2018.06-SP4
+Date   : Wed Apr 21 16:37:43 2021
+****************************************
+
+Operating Conditions: uk65lscllmvbbr_100c25_tc   Library: uk65lscllmvbbr_100c25_tc
+Wire Load Model Mode: top
+
+  Startpoint: a (input port)
+  Endpoint: y (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  inv_chain          wl0                   uk65lscllmvbbr_100c25_tc
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  a (in)                                   0.00       0.00 f
+  u0/Z (INVM12R)                           0.01       0.01 r
+  genblk1[1].u1/Z (CKINVM1R)               0.02       0.03 f
+  genblk1[2].u1/Z (CKINVM1R)               0.04       0.07 r
+  y (out)                                  0.00       0.07 r
+  data arrival time                                   0.07
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

@@ -1,0 +1,51 @@
+(DELAYFILE
+(SDFVERSION "OVI 2.1")
+(DESIGN "inv_chain")
+(DATE "Wed Apr 21 18:10:12 2021")
+(VENDOR "uk65lscllmvbbr_100c25_tc")
+(PROGRAM "Synopsys Design Compiler cmos")
+(VERSION "O-2018.06-SP4")
+(DIVIDER /)
+(VOLTAGE 1.00:1.00:1.00)
+(PROCESS "uk65lscllmvbbr_100c25_tc")
+(TEMPERATURE 25.00:25.00:25.00)
+(TIMESCALE 1ns)
+(CELL
+  (CELLTYPE "inv_chain")
+  (INSTANCE)
+  (DELAY
+    (ABSOLUTE
+    (INTERCONNECT genblk1_1__u1/Z genblk1_2__u1/A (0.000:0.000:0.000))
+    (INTERCONNECT u0/Z genblk1_1__u1/A (0.000:0.000:0.000))
+    (INTERCONNECT genblk1_2__u1/Z u0/A (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVM12R")
+  (INSTANCE genblk1_2__u1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.016:0.016:0.016) (0.014:0.014:0.014))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVM12R")
+  (INSTANCE genblk1_1__u1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.012:0.012:0.012) (0.007:0.007:0.007))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVM12R")
+  (INSTANCE u0)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.017:0.017:0.017) (0.014:0.014:0.014))
+    )
+  )
+)
+)

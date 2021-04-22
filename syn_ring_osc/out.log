@@ -1,0 +1,176 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+                Version O-2018.06-SP4 for linux64 - Nov 27, 2018
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+set_host_options -max_cores 4
+1
+analyze -f sv -lib WORK ../ring_osc/inv_chain.sv
+Running PRESTO HDLC
+Compiling source file ../ring_osc/inv_chain.sv
+Information:  ../ring_osc/inv_chain.sv:3: List () of one, unnamed, port is ignored. (VER-988)
+Presto compilation completed successfully.
+Loading db file '/software/dk/umc65/Core-lib_LL_Multi-Voltage_Reg.Vt/synopsys/uk65lscllmvbbr_100c25_tc.db'
+Loading db file '/software/synopsys/syn_current_64/libraries/syn/dw_foundation.sldb'
+1
+set power_preserve_rtl_hier_names true
+true
+elaborate inv_chain -lib WORK > ./elaborate.txt
+link
+
+  Linking design 'inv_chain'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  inv_chain                   /home/phd-students/maurizio.capra/test/syn3/inv_chain.db
+  uk65lscllmvbbr_100c25_tc (library) /software/dk/umc65/Core-lib_LL_Multi-Voltage_Reg.Vt/synopsys/uk65lscllmvbbr_100c25_tc.db
+  dw_foundation.sldb (library) /software/synopsys/syn_current_64/libraries/syn/dw_foundation.sldb
+
+1
+check_design
+ 
+****************************************
+check_design summary:
+Version:     O-2018.06-SP4
+Date:        Wed Apr 21 18:10:05 2021
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Designs                                                             1
+    Design has no outputs ports (LINT-25)                           1
+--------------------------------------------------------------------------------
+
+Warning: Design 'inv_chain' does not have any output ports. (LINT-25)
+1
+ungroup -all -flatten
+Warning: Design has no hierarchy.  No cells can be ungrouped. (UID-228)
+0
+set_dont_touch inv_chain
+1
+set_dont_touch u0
+1
+set_dont_touch genblk*
+1
+compile
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.4 |     *     |
+| Licensed DW Building Blocks        | F-2011.09-DWBB_201109.3 |           |
+============================================================================
+
+
+Information: There are 1 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'inv_chain'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Timing loop detected. (OPT-150)
+	u0/Z genblk1[1].u1/A genblk1[1].u1/Z genblk1[2].u1/A genblk1[2].u1/Z u0/A 
+Warning: Disabling timing arc between pins 'A' and 'Z' on cell 'u0'
+         to break a timing loop. (OPT-314)
+Information: Design 'inv_chain' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:03       9.7      0.00       0.0       0.0                          
+    0:00:03       9.7      0.00       0.0       0.0                          
+    0:00:03       9.7      0.00       0.0       0.0                          
+    0:00:03       9.7      0.00       0.0       0.0                          
+    0:00:03       9.7      0.00       0.0       0.0                          
+    0:00:03       9.7      0.00       0.0       0.0                          
+    0:00:03       9.7      0.00       0.0       0.0                          
+    0:00:03       9.7      0.00       0.0       0.0                          
+    0:00:03       9.7      0.00       0.0       0.0                          
+    0:00:03       9.7      0.00       0.0       0.0                          
+    0:00:03       9.7      0.00       0.0       0.0                          
+    0:00:03       9.7      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:03       9.7      0.00       0.0       0.0                          
+    0:00:03       9.7      0.00       0.0       0.0                          
+    0:00:04       9.7      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:04       9.7      0.00       0.0       0.0                          
+    0:00:04       9.7      0.00       0.0       0.0                          
+    0:00:04       9.7      0.00       0.0       0.0                          
+    0:00:04       9.7      0.00       0.0       0.0                          
+    0:00:04       9.7      0.00       0.0       0.0                          
+    0:00:04       9.7      0.00       0.0       0.0                          
+    0:00:04       9.7      0.00       0.0       0.0                          
+    0:00:04       9.7      0.00       0.0       0.0                          
+    0:00:04       9.7      0.00       0.0       0.0                          
+    0:00:04       9.7      0.00       0.0       0.0                          
+    0:00:04       9.7      0.00       0.0       0.0                          
+Loading db file '/software/dk/umc65/Core-lib_LL_Multi-Voltage_Reg.Vt/synopsys/uk65lscllmvbbr_100c25_tc.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+report_timing > ./timing.txt
+report_area > ./area.txt
+ungroup -all -flatten
+Warning: Design has no hierarchy.  No cells can be ungrouped. (UID-228)
+0
+change_names -hierarchy -rules verilog
+1
+write_sdf netlist/inv_chain.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/phd-students/maurizio.capra/test/syn3/netlist/inv_chain.sdf'. (WT-3)
+1
+write -f verilog -hierarchy -output netlist/inv_chain.v
+Writing verilog file '/home/phd-students/maurizio.capra/test/syn3/netlist/inv_chain.v'.
+1
+write_sdc netlist/inv_chain.sdc
+1
+quit
+
+Thank you...

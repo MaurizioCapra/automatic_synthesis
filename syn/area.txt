@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : top_level
+Version: O-2018.06-SP4
+Date   : Tue Apr 20 10:48:46 2021
+****************************************
+
+Library(s) Used:
+
+    uk65lscllmvbbr_100c25_tc (File: /software/dk/umc65/Core-lib_LL_Multi-Voltage_Reg.Vt/synopsys/uk65lscllmvbbr_100c25_tc.db)
+
+Number of ports:                            3
+Number of nets:                             4
+Number of cells:                            2
+Number of combinational cells:              1
+Number of sequential cells:                 1
+Number of macros/black boxes:               0
+Number of buf/inv:                          1
+Number of references:                       2
+
+Combinational area:                  1.080000
+Buf/Inv area:                        1.080000
+Noncombinational area:               6.840000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                     7.920000
+Total area:                 undefined
+1

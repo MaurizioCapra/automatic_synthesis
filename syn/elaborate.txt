@@ -1,0 +1,20 @@
+Loading db file '/software/dk/umc65/Core-lib_LL_Multi-Voltage_Reg.Vt/synopsys/uk65lscllmvbbr_100c25_tc.db'
+Loading db file '/software/synopsys/syn_current_64/libraries/syn/dw_foundation.sldb'
+Loading db file '/software/europractice-release-2019/synopsys/synO-2018.06-SP4/libraries/syn/gtech.db'
+Loading db file '/software/europractice-release-2019/synopsys/synO-2018.06-SP4/libraries/syn/standard.sldb'
+  Loading link library 'uk65lscllmvbbr_100c25_tc'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process
+	in routine top_level line 11 in file
+		'/home/phd-students/maurizio.capra/test/rtl/top_level.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       a1_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'top_level'.
+1

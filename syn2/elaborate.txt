@@ -1,0 +1,9 @@
+Loading db file '/software/europractice-release-2019/synopsys/synO-2018.06-SP4/libraries/syn/gtech.db'
+Loading db file '/software/europractice-release-2019/synopsys/synO-2018.06-SP4/libraries/syn/standard.sldb'
+  Loading link library 'uk65lscllmvbbr_100c25_tc'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'inv_chain'.
+1
